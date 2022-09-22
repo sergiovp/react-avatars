@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import GltfModel from '../Models/GltfModel';
-import test from '../test.glb';
+import GltfModel from './GltfModel';
 import './styles.css';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -12,12 +11,7 @@ type Props = {
     position: number[];
 };
 
-const ModelViewer = ({
-    modelPath,
-    scale = 40,
-    position = [0, 0, 0],
-}: Props) => {
-    console.log('QUER HAY', test);
+const ModelViewer = ({ modelPath, scale, position }: Props) => {
     return (
         <Container className="canvas">
             <Canvas>
