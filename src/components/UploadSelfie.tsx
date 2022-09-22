@@ -1,17 +1,26 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import SubmitImageBtn from './SubmitImageBtn';
 
-function UploadSelfie() {
-    const [selectedImage, setSelectedImage] = React.useState<File>(null);
+type Props = {
+    setSelectedImage: (file: File) => void;
+    setSelectedBase64Image: (base64Image: string) => void;
+    selectedImage: File;
+};
 
-    const inputImageRef = React.useRef(null);
-
-    const handleSubmitSelfie = React.useCallback(() => {
-        if (!selectedImage) {
-            return;
-        }
-    }, [selectedImage]);
+function UploadSelfie({
+    setSelectedImage,
+    setSelectedBase64Image,
+    selectedImage,
+}: Props) {
+    const handleImageChange = React.useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+            if (event.target.files.length > 0) {
+                setSelectedImage(event.target.files[0]);
+            }
+        },
+        [setSelectedImage],
+    );
 
     return (
         <>
@@ -21,16 +30,12 @@ function UploadSelfie() {
                     type="file"
                     accept="image/*"
                     onChange={handleImageChange}
-                    ref={inputImageRef}
                 />
             </Form.Group>
-            <Button
-                disabled={!selectedImage}
-                variant="info"
-                onClick={handleSubmitSelfie}
-            >
-                Submit
-            </Button>
+            <SubmitImageBtn
+                selectedImage={selectedImage}
+                setSelectedBase64Image={setSelectedBase64Image}
+            />
         </>
     );
 }
