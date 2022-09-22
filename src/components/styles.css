@@ -27,6 +27,10 @@
 
 .canvas {
     margin-top: 3em;
-    height: 120em;
+    height: 80em;
     width: 50em;
+}
+
+iframe {
+    display: none;
 }

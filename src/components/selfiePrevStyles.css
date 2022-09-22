@@ -1,0 +1,12 @@
+.loaded-img {
+    width: 20em;
+    margin-bottom: 2em;
+}
+
+.img-vis {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+}
