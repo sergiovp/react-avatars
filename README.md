@@ -8,6 +8,8 @@ Small basic React project that takes a selfie, requests an API and renders an av
 -   Install dependencies `npm i`
 -   Run the project `npm start`
 
+You must create a file called .env in the root directory (a ![template file](https://github.com/sergiovp/react-avatars/blob/main/.env.template) is provided in the repository). __In this file you must specify a valid token for consuming the API__.
+
 ### User guide
 
 1. Once the project starts, you can upload an image (selfie) that will be displayed on the screen.
